@@ -49,7 +49,7 @@ class TrainDataset(Dataset):
                     tmp_pos.append((x_c, y_c))
                     for ii in range(290):
                         for jj in range(290):
-                            tar_p[ii,jj] = math.exp(-0.01*((ii-x_c)**2+(jj-y_c)**2))
+                            tar_p[ii,jj] = math.exp(((ii-x_c)**2+(jj-y_c)**2))
                     tar_20 = tar_20 - tar_p
                     tmp.append(tar_p)
                 tmp.append(tar_20)
