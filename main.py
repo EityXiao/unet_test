@@ -60,8 +60,8 @@ def loss(pre, target):
     flag_1 = (target > 0.01).int()
     flag_2 = (target <= 0.01).int()
     Ht = pre*flag_1 + (1-pre)*flag_2
-    bce = 0.5*target*torch.log(pre) 
-    focal = 0.5/100*(1-Ht)*torch.log(Ht) 
+    bce = target*torch.log(pre) 
+    focal = (1-Ht)*torch.log(Ht) 
     loss_ = -(bce+focal).mean()
     return loss_
 
